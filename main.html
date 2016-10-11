@@ -71,7 +71,7 @@
                 <input ng-model="newNome" placeholder="Nome" type="text" class="form-control" id="campo3">
             </div>
  
-            <div class="form-group col-md-2">
+           <div class="form-group col-md-2">
                 <label for="campo3">CPF</label>
                 <input  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" ng-model="newCPF" type="text" class="form-control" id="campo3">
             </div>
@@ -89,7 +89,7 @@
             </div>
             <div class="form-group col-md-2">
                 <label for="campo2">Salario</label>
-                <input pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  ng-model="newSalario" placeholder="0000.00" type="number" class="form-control" id="campo3">
+                <input  ng-model="newSalario" placeholder="0000.00" type="number" class="form-control" id="campo3">
             </div>
             <div class="form-group col-md-2">
                 <label for="campo2">Cargo</label>
@@ -97,7 +97,7 @@
             </div>
             
             <div class="col-md-10">
-            <button ng-click="ShowAlert()" type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
             <a href="index.html" class="btn btn-default">Cancelar</a>
             
             </div>
@@ -131,7 +131,9 @@
                 <td style="width:10%">{{funcionario.FUNC_DT_CONTRATACAO}}</td>
                 <td style="width:10%">{{funcionario.FUNC_SALARIO}}</td>
                 <td style="width:10%">{{funcionario.FUNC_CARGO}}</td>
-              </tr>
+                <td><a> <button class="btn btn-primary btn-block" type="button" ng-click="editFuncionario()">Editar</button>
+                <button class="btn btn-danger btn-block" type="button" ng-click="deleteFuncionario(funcionario)">Apagar</button></a></td>
+              </tr>     
             </tbody>
           </table>
         </div>
