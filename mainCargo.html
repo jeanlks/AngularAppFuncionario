@@ -104,6 +104,8 @@
                 <td style="width:10%">{{cargo.CARGO_COD}}</td>
                 <td style="width:60%">{{cargo.CARGO_DESCRICAO}}</td>
                 <td style="width:30%">{{cargo.CARGO_NIVEL}}</td>
+                 <td><a> <button class="btn btn-primary btn-block" type="button" ng-click="editCargo()">Editar</button>
+                <button class="btn btn-danger btn-block" type="button" ng-click="deleteCargo(cargo)">Apagar</button></a></td>
               </tr>
             </tbody>
           </table>

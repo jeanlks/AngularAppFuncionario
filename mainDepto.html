@@ -40,7 +40,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="main.html ">CRUD Firebase</a>
+            <a class="navbar-brand" href="main.html">CRUD Firebase</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -101,6 +101,8 @@
                 <td style="width:10%">{{departamento.DEPTO_CODE}}</td>
                 <td style="width:60%">{{departamento.DEPTO_DESCRICAO}}</td>
                 <td style="width:30%">{{departamento    .RAMAL_NIVEL}}</td>
+                <td><a> <button class="btn btn-primary btn-block" type="button" ng-click="editDepartamento()">Editar</button>
+                <button class="btn btn-danger btn-block" type="button" ng-click="deleteDepartamento(departamento)">Apagar</button></a></td>
               </tr>
             </tbody>
           </table>
