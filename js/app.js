@@ -1,13 +1,9 @@
 var app = angular.module("App", ["firebase"]);
 
 
-    app.controller("Ctrl", function ($scope,$window, $firebaseArray) {
+app.controller("CtrlFuncionario", function ($scope,$window, $firebaseArray) {
   var ref = new Firebase("https://crud-9011c.firebaseio.com/Funcionarios");
     $scope.funcionarios = $firebaseArray(ref);
-  var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
-     $scope.departamentos = $firebaseArray(ref);
-  var ref = new Firebase("https://crud-9011c.firebaseio.com/Cargos");
-     $scope.cargos = $firebaseArray(ref);
     
   $scope.addFuncionario = function() {
     $scope.funcionarios.$add({
@@ -42,7 +38,15 @@ $scope.deleteFuncionario = function(funcionario) {
     $scope.funcionarios.$remove(funcionario);
   };
         
-    $scope.addDepartamento = function(){
+ 
+ 
+});
+
+app.controller("CtrlDepto", function ($scope,$window, $firebaseArray) {
+ var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
+     $scope.departamentos = $firebaseArray(ref);
+    
+   $scope.addDepartamento = function(){
        $scope.departamentos.$add({
        DEPTO_CODE: $scope.newDeptoCode,
        DEPTO_DESCRICAO: $scope.newDescricao,
@@ -56,6 +60,12 @@ $scope.deleteFuncionario = function(funcionario) {
         $window.alert("Departamento Deletado"+departamento.DEPTO_DESCRICAO); 
     };
    
+});
+
+app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {   
+  var ref = new Firebase("https://crud-9011c.firebaseio.com/Cargos");
+     $scope.cargos = $firebaseArray(ref);
+    
     $scope.addCargo = function(){
       $scope.cargos.$add({
       CARGO_COD: $scope.newCargoCod,
@@ -68,5 +78,6 @@ $scope.deleteFuncionario = function(funcionario) {
         $scope.cargos.$remove(cargo);
         $window.alert("Cargo Deletado"+cargo.CARGO_DESCRICAO); 
   };
-  // click on `index.html` above to see $remove() and $save() in action
+
+        
 });
