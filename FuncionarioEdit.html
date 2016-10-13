@@ -65,7 +65,7 @@
             <form ng-submit="addFuncionario()" >
             <div class="form-group col-md-1">
                 <label for="campo1">ID</label>
-                <input ng-model="newCodeFunc" placeholder="0" type="text" class="form-control" id="campo1" required>
+                <input value ="{{sharedData.FUNC_CODE}}" ng-model="newCodeFunc" placeholder="0" type="text" class="form-control" id="campo1" required>
             </div>
  
             <div class="form-group col-md-3">

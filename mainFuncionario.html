@@ -131,7 +131,7 @@
                 <td style="width:10%">{{funcionario.FUNC_DT_CONTRATACAO}}</td>
                 <td style="width:10%">{{funcionario.FUNC_SALARIO}}</td>
                 <td style="width:10%">{{funcionario.FUNC_CARGO}}</td>
-                <td><a> <button class="btn btn-primary btn-block" type="button" ng-click="editFuncionario()">Editar</button>
+                <td><a > <button ng-click="shareMyData(funcionario.FUNC_CODE)" class="btn btn-primary btn-block" type="button" >Editar</button>
                 <button class="btn btn-danger btn-block" type="button" ng-click="deleteFuncionario(funcionario)">Apagar</button></a></td>
               </tr>     
             </tbody>
