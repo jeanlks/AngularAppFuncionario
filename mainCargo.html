@@ -64,25 +64,25 @@
         
 
         <div class="row">
-            <form ng-submit="addCargo()" >
+            <form  >
             <div class="form-group col-md-1">
                 <label for="campo1">Codigo</label>
-                <input ng-model="newCargoCod" type="text" class="form-control" id="campo1" required>
+                <input ng-model="cargoForm.CARGO_COD" type="text" class="form-control" id="campo1" required>
             </div>
  
             <div class="form-group col-md-3">
                 <label for="campo2">Descrição</label>
-                <input ng-model="newCargoDescricao" type="text" class="form-control" id="campo3">
+                <input ng-model="cargoForm.CARGO_DESCRICAO" type="text" class="form-control" id="campo3">
             </div>
  
             <div class="form-group col-md-2">
                 <label for="campo3">Nível</label>
-                <input ng-model="newCargoNivel" type="text" class="form-control" id="campo3">
+                <input ng-model="cargoForm.CARGO_NIVEL" type="text" class="form-control" id="campo3">
             </div>
             
             <div class="col-md-10">
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="index.html" class="btn btn-default">Cancelar</a>
+            <button ng-click="addCargo(cargoForm)" class="btn btn-primary">Salvar</button>
+            <a href="mainCargo.html" class="btn btn-default">Cancelar</a>
             
             </div>
         </form>

@@ -7,28 +7,12 @@ app.controller("CtrlFuncionario", function ($scope,$window, $firebaseArray) {
     $scope.funcionarios = $firebaseArray(ref);
     
    $scope.clearPage = function(){
-         $scope.newCodeFund = null;
-         $scope.newNome = null;
-         $scope.newCPF =null;  
-         $scope.newDTNascimento = null;
-         $scope.newFuncDepto =null;
-         $scope.newDTContratacao = null;
-         $scope.newSalario = null;
-         $scope.newCargo = null
+         $scope.funcionarioForm =null;
     }
    
-  $scope.addFuncionario = function() {
-    $scope.funcionarios.$add({
-      FUNC_CODE: $scope.newCodeFunc,
-      FUNC_NOME: $scope.newNome,  
-      FUNC_CPF: $scope.newCPF,
-      FUNC_DT_NASCIMENTO: $scope.newDTNascimento,
-      FUNC_DEPTO: $scope.newFuncDepto,
-      FUNC_DT_CONTRATACAO: $scope.newDTContratacao,
-      FUNC_SALARIO: $scope.newSalario,
-      FUNC_CARGO: $scope.newCargo
-    });
-        $window.alert("Funcionário Salvo: "+$scope.newNome); 
+  $scope.addFuncionario = function(funcionarioForm) {
+    $scope.funcionarios.$add(funcionarioForm);
+        $window.alert("Funcionário Salvo: "+funcionarioForm.FUNC_NOME); 
         $scope.clearPage();
   };
     
@@ -58,15 +42,14 @@ $scope.deleteFuncionario = function(funcionario) {
 app.controller("CtrlDepto", function ($scope,$window, $firebaseArray) {
 $scope.secondClick = false;
 $scope.btnEdit = "Editar";
+
     
  var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
      $scope.departamentos = $firebaseArray(ref);
     $scope.clearPage = function(){
-         $scope.departamentoForm.DEPTO_CODE = null;
-         $scope.departamentoForm.DEPTO_DESCRICAO = null;
-         $scope.departamentoForm.DEPTO_RAMAL =null;    
+         $scope.departamentoForm = null;   
     };
-    
+   //adiciona departamento no array do firebase 
    $scope.addDepartamento = function(departamentoForm){
        $scope.departamentos.$add(departamentoForm);
       
@@ -81,22 +64,22 @@ $scope.btnEdit = "Editar";
   
     
     $scope.editDepartamento= function(departamento,departamentoForm){
+        
         if(!$scope.secondClick){
             $scope.departamentoForm = departamento;
             $scope.secondClick = true;
             $scope.btnEdit = "Salvar";
-           $window.alert("Departamento Atualizado: "+departamento.DEPTO_DESCRICAO);
-            $window.alert("1");
+            
+           $window.alert("Edite o campo acima");
        
         }else{
         $scope.departamentos.$remove(departamento);
         $scope.departamentos.$add($scope.departamentoForm);
         
        $window.alert("Departamento Atualizado: "+$scope.departamentoForm.DEPTO_DESCRICAO);
-      $window.alert("2: ");
        
        $scope.secondClick = false;
-        $scope.btnEdit = "Editar";
+       $scope.btnEdit = "Editar";
          $scope.clearPage();
         }
 
@@ -109,19 +92,14 @@ $scope.btnEdit = "Editar";
 app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {   
   var ref = new Firebase("https://crud-9011c.firebaseio.com/Cargos");
      $scope.cargos = $firebaseArray(ref);
+    
      $scope.clearPage = function(){
-         $scope.newCargoCod = null;
-         $scope.newCargoDescricao = null;
-         $scope.newCargoNivel =null;    
+         $scope.cargoForm= null;   
      };
     
-    $scope.addCargo = function(){
-      $scope.cargos.$add({
-      CARGO_COD: $scope.newCargoCod,
-      CARGO_DESCRICAO: $scope.newCargoDescricao,
-      CARGO_NIVEL: $scope.newCargoNivel
-      });
-      $window.alert("Cargo Salvo: "+$scope.newCargoCod); 
+    $scope.addCargo = function(cargoForm){
+      $scope.cargos.$add(cargoForm);
+      $window.alert("Cargo Salvo: "+cargoForm.CARGO_DESCRICAO); 
       $scope.clearPage();
     };
         $scope.deleteCargo = function(cargo) {

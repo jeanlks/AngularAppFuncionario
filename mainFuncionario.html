@@ -60,45 +60,45 @@
         
 
         <div class="row">
-            <form ng-submit="addFuncionario()" >
+            <form >
             <div class="form-group col-md-1">
                 <label for="campo1">ID</label>
-                <input ng-model="newCodeFunc" placeholder="0" type="text" class="form-control" id="campo1" required>
+                <input ng-model="funcionarioForm.FUNC_CODE" placeholder="0" type="text" class="form-control" id="campo1" required>
             </div>
  
             <div class="form-group col-md-3">
                 <label for="campo2">Nome</label>
-                <input ng-model="newNome" placeholder="Nome" type="text" class="form-control" id="campo3">
+                <input ng-model="funcionarioForm.FUNC_NOME" placeholder="Nome" type="text" class="form-control" id="campo3">
             </div>
  
            <div class="form-group col-md-2">
                 <label for="campo3">CPF</label>
-                <input  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" ng-model="newCPF" type="text" class="form-control" id="campo3">
+                <input  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" ng-model="funcionarioForm.FUNC_CPF" type="text" class="form-control" id="campo3">
             </div>
             <div class="form-group col-md-2">
                 <label  type="date" for="campo3">Data Nascimento</label>
-                <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" ng-model="newDTNascimento" placeholder="DD/MM/AAAA" type="text" class="form-control" id="campo3">
+                <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" ng-model="funcionarioForm.FUNC_DT_NASCIMENTO" placeholder="DD/MM/AAAA" type="text" class="form-control" id="campo3">
             </div>
             <div class="form-group col-md-2">
                 <label type="date" for="campo3">Departamento</label>
-                <input ng-model="newFuncDepto" placeholder="0" type="text" class="form-control" id="campo3">
+                <input ng-model="funcionarioForm.FUNC_DEPTO" placeholder="0" type="text" class="form-control" id="campo3">
             </div>
             <div class="form-group col-md-2">
                 <label for="campo2">Data Contratacao</label>
-                <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" ng-model="newDTContratacao" placeholder="DD/MM/AAAA" type="text" class="form-control" id="campo3">
+                <input pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" ng-model="funcionarioForm.FUNC_DT_CONTRATACAO" placeholder="DD/MM/AAAA" type="text" class="form-control" id="campo3">
             </div>
             <div class="form-group col-md-2">
                 <label for="campo2">Salario</label>
-                <input  ng-model="newSalario" placeholder="0000.00" type="number" class="form-control" id="campo3">
+                <input  ng-model="funcionarioForm.FUNC_SALARIO" placeholder="0000.00" type="number" class="form-control" id="campo3">
             </div>
             <div class="form-group col-md-2">
                 <label for="campo2">Cargo</label>
-                <input ng-model="newCargo" placeholder="0" type="text" class="form-control" id="campo3">
+                <input ng-model="funcionarioForm.FUNC_CARGO" placeholder="0" type="text" class="form-control" id="campo3">
             </div>
             
             <div class="col-md-10">
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="index.html" class="btn btn-default">Cancelar</a>
+            <button ng-click="addFuncionario(funcionarioForm)"  class="btn btn-primary">Salvar</button>
+            <a href="mainFuncionario.html" class="btn btn-default">Cancelar</a>
             
             </div>
         </form>
