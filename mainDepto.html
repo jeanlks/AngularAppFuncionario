@@ -63,24 +63,23 @@
             <form  >
             <div class="form-group col-md-1">
                 <label for="campo1">Codigo</label>
-                <input ng-model="departamento.DEPTO_CODE" type="text" class="form-control" id="campo1" required>
+                <input ng-model="departamentoForm.DEPTO_CODE" type="text" class="form-control" id="campo1" required>
             </div>
  
             <div class="form-group col-md-3">
                 <label for="campo2">Descrição</label>
-                <input ng-model="departamento.DEPTO_DESCRICAO" type="text" class="form-control" id="campo3">
+                <input ng-model="departamentoForm.DEPTO_DESCRICAO" type="text" class="form-control" id="campo3">
             </div>
  
             <div class="form-group col-md-2">
                 <label for="campo3">Ramal</label>
-                <input ng-model="departamento.DEPTO_RAMAL" type="text" class="form-control" id="campo3">
+                <input ng-model="departamentoForm.DEPTO_RAMAL" type="text" class="form-control" id="campo3">
             </div>
             
             
             <div class="col-md-10">
-            <button ng-click="addDepartamento()"type="submit" class="btn btn-primary">Salvar</button>
-            <a href="/index.html" class="btn btn-default">Cancelar</a>
-            <button ng-click="editDepartamentoAtualizar(departamento)"  class="btn btn-success">Atualizar</button>
+            <button ng-click="addDepartamento(departamentoForm)"type="submit" class="btn btn-primary">Salvar</button>
+            <a href="/mainDepto.html" class="btn btn-default">Cancelar</a>
             </div>
                 
                 
@@ -104,7 +103,7 @@
                 <td style="width:60%">{{departamento.DEPTO_DESCRICAO}}</td>
                 <td style="width:30%">{{departamento.DEPTO_RAMAL}}</td>
                     
-                <td><a> <button id="btnEdit" class="btn btn-primary btn-block" type="button" ng-click="editDepartamento($index,departamento)">{{btnEdit}}</button>
+                <td><a> <button id="btnEdit" class="btn btn-primary btn-block" type="button" ng-click="editDepartamento(departamento,departamentoForm)">{{btnEdit}}</button>
                 <button class="btn btn-danger btn-block" type="button" ng-click="deleteDepartamento(departamento)">Apagar</button></a></td>
               </tr>
             </tbody>

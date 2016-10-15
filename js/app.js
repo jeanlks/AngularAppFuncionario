@@ -62,44 +62,45 @@ $scope.btnEdit = "Editar";
  var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
      $scope.departamentos = $firebaseArray(ref);
     $scope.clearPage = function(){
-         $scope.departamento.DEPTO_CODE = null;
-         $scope.departamento.DEPTO_DESCRICAO = null;
-         $scope.departamento.DEPTO_RAMAL =null;    
-    }
+         $scope.departamentoForm.DEPTO_CODE = null;
+         $scope.departamentoForm.DEPTO_DESCRICAO = null;
+         $scope.departamentoForm.DEPTO_RAMAL =null;    
+    };
     
-   $scope.addDepartamento = function(){
-       $scope.departamentos.$add({
-       DEPTO_CODE: $scope.departamento.DEPTO_CODE,
-       DEPTO_DESCRICAO: $scope.departamento.DEPTO_DESCRICAO,
-       DEPTO_RAMAL: $scope.departamento.DEPTO_RAMAL
-       });
+   $scope.addDepartamento = function(departamentoForm){
+       $scope.departamentos.$add(departamentoForm);
       
-        $window.alert("Departamento Salvo: "+$scope.departamento.DEPTO_DESCRICAO);
+        $window.alert("Departamento Salvo: "+$scope.departamentoForm.DEPTO_DESCRICAO);
         $scope.clearPage();
     };
     
-        $scope.deleteDepartamento = function(departamento) {
-        $scope.departamentos.$remove(departamento);
-        $window.alert("Departamento Deletado: "+departamento.DEPTO_DESCRICAO); 
+        $scope.deleteDepartamento = function(departamentoForm) {
+        $scope.departamentos.$remove(departamentoForm);
+        $window.alert("Departamento Deletado: "+departamentoForm.DEPTO_DESCRICAO); 
     };
   
     
-    $scope.editDepartamento= function(index, departamento){
-
-    if(!$scope.secondClick){
-        $scope.departamento = departamento;
-        $scope.secondClick = true;
-        $scope.btnEdit = "Salvar";
-    }
-    else{
-        $scope.departamentos[index] = departamento;
-        $scope.clearPage();
-        $window.alert("Departamento Atualizado: "+index);
-        $scope.secondClick = false;
+    $scope.editDepartamento= function(departamento,departamentoForm){
+        if(!$scope.secondClick){
+            $scope.departamentoForm = departamento;
+            $scope.secondClick = true;
+            $scope.btnEdit = "Salvar";
+           $window.alert("Departamento Atualizado: "+departamento.DEPTO_DESCRICAO);
+            $window.alert("1");
+       
+        }else{
+        $scope.departamentos.$remove(departamento);
+        $scope.departamentos.$add($scope.departamentoForm);
+        
+       $window.alert("Departamento Atualizado: "+$scope.departamentoForm.DEPTO_DESCRICAO);
+      $window.alert("2: ");
+       
+       $scope.secondClick = false;
         $scope.btnEdit = "Editar";
-    }
+         $scope.clearPage();
+        }
 
-  };
+    };
     
     
    
