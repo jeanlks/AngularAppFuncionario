@@ -1,10 +1,11 @@
 var app = angular.module("App", ["firebase"]);
-
-
+ 
 
 app.controller("CtrlFuncionario", function ($scope,$window, $firebaseArray) {
   var ref = new Firebase("https://crud-9011c.firebaseio.com/Funcionarios");
-    $scope.funcionarios = $firebaseArray(ref);
+  $scope.btnEdit = "Editar";
+  $scope.secondClick = false;
+  $scope.funcionarios = $firebaseArray(ref);
     
    $scope.clearPage = function(){
          $scope.funcionarioForm =null;
@@ -16,26 +17,34 @@ app.controller("CtrlFuncionario", function ($scope,$window, $firebaseArray) {
         $scope.clearPage();
   };
     
- $scope.editFuncionario = function(funcionario) {
-     $scope.funcionarios.$edit({
-      FUNC_CODE: $scope.newCodeFunc,
-      FUNC_NOME: $scope.newNome,  
-      FUNC_CPF: $scope.newCPF,
-      FUNC_DT_NASCIMENTO: $scope.newDTNascimento,
-      FUNC_DEPTO: $scope.newFuncDepto,
-      FUNC_DT_CONTRATACAO: $scope.newDTContratacao,
-      FUNC_SALARIO: $scope.newSalario,
-      FUNC_CARGO: $scope.newCargo
-    });
-        $window.alert("Funcionário Salvo: "+$scope.newNome); 
-  };
+
         
 $scope.deleteFuncionario = function(funcionario) {
     $window.alert("Funcionario Deletado"+funcionario.FUNC_NOME); 
     $scope.funcionarios.$remove(funcionario);
   };
         
- 
+ $scope.editFuncionario = function(funcionario,funcionarioForm){
+        
+        if(!$scope.secondClick){
+            $scope.funcionarioForm = funcionario;
+            $scope.secondClick = true;
+            $scope.btnEdit = "Salvar";
+           $window.alert("Edite o campo acima");
+       
+        }else{
+      $scope.funcionarios.$remove(funcionario);
+     $scope.funcionarios.$add($scope.funcionarioForm);
+      
+     $window.alert("Departamento Atualizado: "+$scope.funcionarioForm.FUNC_NOME);
+    
+       $scope.secondClick = false;
+       $scope.btnEdit = "Editar";
+         $scope.clearPage();
+        }
+
+    };
+    
  
 });
 
@@ -62,7 +71,7 @@ $scope.btnEdit = "Editar";
         $window.alert("Departamento Deletado: "+departamentoForm.DEPTO_DESCRICAO); 
     };
   
-    
+
     $scope.editDepartamento= function(departamento,departamentoForm){
         
         if(!$scope.secondClick){
