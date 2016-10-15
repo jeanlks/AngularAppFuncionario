@@ -1,4 +1,4 @@
-application: chatindrajp
+application: crudangular
 version: 1
 runtime: php55
 api_version: 1
@@ -16,5 +16,13 @@ handlers:
   static_dir: css
 
 - url: /
-  static_files: main.html
-  upload: main.html
+  static_files: mainFuncionario.html
+  upload: mainFuncionario.html
+
+- url: /mainDepto.html
+  static_files: mainDepto.html
+  upload: mainDepto.html
+
+- url: /mainCargo.html
+  static_files: mainCargo.html
+  upload: mainCargo.html

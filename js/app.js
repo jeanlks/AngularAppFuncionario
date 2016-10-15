@@ -30,13 +30,13 @@ $scope.deleteFuncionario = function(funcionario) {
             $scope.funcionarioForm = funcionario;
             $scope.secondClick = true;
             $scope.btnEdit = "Salvar";
-           $window.alert("Edite o campo acima");
+           $window.alert("Edite os campos acima");
        
         }else{
       $scope.funcionarios.$remove(funcionario);
      $scope.funcionarios.$add($scope.funcionarioForm);
       
-     $window.alert("Departamento Atualizado: "+$scope.funcionarioForm.FUNC_NOME);
+     $window.alert("Funcionario Atualizado: "+$scope.funcionarioForm.FUNC_NOME);
     
        $scope.secondClick = false;
        $scope.btnEdit = "Editar";
@@ -55,7 +55,7 @@ $scope.btnEdit = "Editar";
     
  var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
      $scope.departamentos = $firebaseArray(ref);
-    $scope.clearPage = function(){
+     $scope.clearPage = function(){
          $scope.departamentoForm = null;   
     };
    //adiciona departamento no array do firebase 
@@ -85,7 +85,7 @@ $scope.btnEdit = "Editar";
         $scope.departamentos.$remove(departamento);
         $scope.departamentos.$add($scope.departamentoForm);
         
-       $window.alert("Departamento Atualizado: "+$scope.departamentoForm.DEPTO_DESCRICAO);
+       $window.alert("Departamento Atualizado: "+departamentoForm.DEPTO_DESCRICAO);
        
        $scope.secondClick = false;
        $scope.btnEdit = "Editar";
@@ -99,7 +99,10 @@ $scope.btnEdit = "Editar";
 });
 
 app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {   
-  var ref = new Firebase("https://crud-9011c.firebaseio.com/Cargos");
+    $scope.secondClick = false;
+    $scope.btnEdit = "Editar";
+    
+    var ref = new Firebase("https://crud-9011c.firebaseio.com/Cargos");
      $scope.cargos = $firebaseArray(ref);
     
      $scope.clearPage = function(){
@@ -116,6 +119,29 @@ app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {
         $window.alert("Cargo Deletado: "+cargo.CARGO_DESCRICAO); 
         
   };
+    
+    $scope.editCargo= function(cargo,cargoForm){
+        
+        if(!$scope.secondClick){
+            $scope.cargoForm = cargo;
+            $scope.secondClick = true;
+            $scope.btnEdit = "Salvar";
+            
+           $window.alert("Edite os campos acima");
+       
+        }else{
+       $scope.cargos.$remove(cargo);
+        $scope.cargos.$add($scope.cargoForm);
+        
+       $window.alert("Cargo Atualizado: "+cargoForm.CARGO_DESCRICAO);
+       
+       $scope.secondClick = false;
+       $scope.btnEdit = "Editar";
+         $scope.clearPage();
+        }
+
+    };
+    
 
         
 });
