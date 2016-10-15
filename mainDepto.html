@@ -60,7 +60,7 @@
         
 
         <div class="row">
-            <form ng-submit="addDepartamento()" >
+            <form  >
             <div class="form-group col-md-1">
                 <label for="campo1">Codigo</label>
                 <input ng-model="departamento.DEPTO_CODE" type="text" class="form-control" id="campo1" required>
@@ -78,10 +78,12 @@
             
             
             <div class="col-md-10">
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button ng-click="addDepartamento()"type="submit" class="btn btn-primary">Salvar</button>
             <a href="/index.html" class="btn btn-default">Cancelar</a>
-            
+            <button ng-click="editDepartamentoAtualizar(departamento)"  class="btn btn-success">Atualizar</button>
             </div>
+                
+                
         </form>
         </div>
         <div style="height: 600px; overflow:auto;" class="page-header" >
@@ -97,11 +99,12 @@
               </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="departamento in departamentos">
+                <tr ng-repeat="departamento in departamentos | orderBy : 'DEPTO_CODE'">
                 <td style="width:10%">{{departamento.DEPTO_CODE}}</td>
                 <td style="width:60%">{{departamento.DEPTO_DESCRICAO}}</td>
                 <td style="width:30%">{{departamento.DEPTO_RAMAL}}</td>
-                <td><a> <button class="btn btn-primary btn-block" type="button" ng-click="editDepartamento(departamento)">Editar</button>
+                    
+                <td><a> <button id="btnEdit" class="btn btn-primary btn-block" type="button" ng-click="editDepartamento($index,departamento)">{{btnEdit}}</button>
                 <button class="btn btn-danger btn-block" type="button" ng-click="deleteDepartamento(departamento)">Apagar</button></a></td>
               </tr>
             </tbody>

@@ -56,6 +56,9 @@ $scope.deleteFuncionario = function(funcionario) {
 });
 
 app.controller("CtrlDepto", function ($scope,$window, $firebaseArray) {
+$scope.secondClick = false;
+$scope.btnEdit = "Editar";
+    
  var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
      $scope.departamentos = $firebaseArray(ref);
     $scope.clearPage = function(){
@@ -77,12 +80,28 @@ app.controller("CtrlDepto", function ($scope,$window, $firebaseArray) {
     
         $scope.deleteDepartamento = function(departamento) {
         $scope.departamentos.$remove(departamento);
-        $window.alert("Departamento Deletado"+departamento.DEPTO_DESCRICAO); 
+        $window.alert("Departamento Deletado: "+departamento.DEPTO_DESCRICAO); 
     };
+  
     
-    $scope.editDepartamento=function(departamento){
-    $scope.departamento=departamento
-  }
+    $scope.editDepartamento= function(index, departamento){
+
+    if(!$scope.secondClick){
+        $scope.departamento = departamento;
+        $scope.secondClick = true;
+        $scope.btnEdit = "Salvar";
+    }
+    else{
+        $scope.departamentos[index] = departamento;
+        $scope.clearPage();
+        $window.alert("Departamento Atualizado: "+index);
+        $scope.secondClick = false;
+        $scope.btnEdit = "Editar";
+    }
+
+  };
+    
+    
    
 });
 

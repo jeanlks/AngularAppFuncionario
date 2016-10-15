@@ -100,7 +100,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="cargo in cargos">
+                <tr ng-repeat="cargo in cargos | orderBy : 'CARGO_COD' ">
                 <td style="width:10%">{{cargo.CARGO_COD}}</td>
                 <td style="width:60%">{{cargo.CARGO_DESCRICAO}}</td>
                 <td style="width:30%">{{cargo.CARGO_NIVEL}}</td>
