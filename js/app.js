@@ -59,25 +59,30 @@ app.controller("CtrlDepto", function ($scope,$window, $firebaseArray) {
  var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
      $scope.departamentos = $firebaseArray(ref);
     $scope.clearPage = function(){
-         $scope.newDeptoCode = null;
-         $scope.newDescricao = null;
-         $scope.newDeptoRamal =null;    
+         $scope.departamento.DEPTO_CODE = null;
+         $scope.departamento.DEPTO_DESCRICAO = null;
+         $scope.departamento.DEPTO_RAMAL =null;    
     }
+    
    $scope.addDepartamento = function(){
        $scope.departamentos.$add({
-       DEPTO_CODE: $scope.newDeptoCode,
-       DEPTO_DESCRICAO: $scope.newDescricao,
-       DEPTO_RAMAL: $scope.newDeptoRamal
+       DEPTO_CODE: $scope.departamento.DEPTO_CODE,
+       DEPTO_DESCRICAO: $scope.departamento.DEPTO_DESCRICAO,
+       DEPTO_RAMAL: $scope.departamento.DEPTO_RAMAL
        });
       
-        $window.alert("Departamento Salvo: "+$scope.newDeptoCode);
-         $scope.clearPage();
+        $window.alert("Departamento Salvo: "+$scope.departamento.DEPTO_DESCRICAO);
+        $scope.clearPage();
     };
     
         $scope.deleteDepartamento = function(departamento) {
         $scope.departamentos.$remove(departamento);
         $window.alert("Departamento Deletado"+departamento.DEPTO_DESCRICAO); 
     };
+    
+    $scope.editDepartamento=function(departamento){
+    $scope.departamento=departamento
+  }
    
 });
 
@@ -89,6 +94,7 @@ app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {
          $scope.newCargoDescricao = null;
          $scope.newCargoNivel =null;    
      };
+    
     $scope.addCargo = function(){
       $scope.cargos.$add({
       CARGO_COD: $scope.newCargoCod,
@@ -100,7 +106,7 @@ app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {
     };
         $scope.deleteCargo = function(cargo) {
         $scope.cargos.$remove(cargo);
-        $window.alert("Cargo Deletado"+cargo.CARGO_DESCRICAO); 
+        $window.alert("Cargo Deletado: "+cargo.CARGO_DESCRICAO); 
         
   };
 
