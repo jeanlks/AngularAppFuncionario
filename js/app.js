@@ -2,10 +2,17 @@ var app = angular.module("App", ["firebase"]);
  
 
 app.controller("CtrlFuncionario", function ($scope,$window, $firebaseArray) {
-  var ref = new Firebase("https://crud-9011c.firebaseio.com/Funcionarios");
+ 
   $scope.btnEdit = "Editar";
   $scope.secondClick = false;
+    
+  //Conexão com Firebase  
+  var ref = new Firebase("https://crud-9011c.firebaseio.com/Funcionarios");
+  var refCargos = new Firebase("https://crud-9011c.firebaseio.com/Cargos");
+  var refDepartamentos = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
   $scope.funcionarios = $firebaseArray(ref);
+  $scope.departamentos = $firebaseArray(refDepartamentos);
+  $scope.cargos = $firebaseArray(refCargos);
     
    $scope.clearPage = function(){
          $scope.funcionarioForm =null;
