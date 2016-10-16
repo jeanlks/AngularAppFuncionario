@@ -17,7 +17,10 @@ app.controller("CtrlFuncionario", function ($scope,$window, $firebaseArray) {
   $scope.clearPage = function(){
          $scope.funcionarioForm =null;
   }
-  
+  $scope.orderByFunction = function(funcionario){
+    return parseInt(funcionario.FUNC_COD);
+  };
+    
   $scope.addFuncionario = function(funcionarioForm) {
     $scope.funcionarios.$add(funcionarioForm);
         $window.alert("Funcionário Salvo: "+funcionarioForm.FUNC_NOME); 

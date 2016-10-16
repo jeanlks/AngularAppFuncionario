@@ -1,0 +1,156 @@
+{
+  "Cargos" : {
+    "Cargo" : {
+      "CARGO_COD" : "1",
+      "CARGO_DESCRICAO" : "ANALISTA FINANCEIRO"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "2",
+      "CARGO_DESCRICAO" : "AUXILIAR ADMINISTRATIVO"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "3",
+      "CARGO_DESCRICAO" : "PSICOLOGA"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "4",
+      "CARGO_DESCRICAO" : "ASSISTENTE DE RECRUTAMENTO"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "5",
+      "CARGO_DESCRICAO" : "CONTROLER"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "6",
+      "CARGO_DESCRICAO" : "CONTADOR"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "7",
+      "CARGO_DESCRICAO" : "PROGRAMADOR"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "8",
+      "CARGO_DESCRICAO" : "ANALISTA DE SISTEMAS"
+    },
+    "Cargo" : {
+      "CARGO_COD" : "9",
+      "CARGO_DESCRICAO" : "GERENTE DE PROJETOS"
+    }
+  },
+  "Departamentos" : {
+    "Departamento" : {
+      "DEPTO_CODE" : "2",
+      "DEPTO_DESCRICAO" : "RH"
+    },
+    "Departamento" : {
+      "DEPTO_CODE" : "3",
+      "DEPTO_DESCRICAO" : "CONTABIL"
+    },
+    "Departamento" : {
+      "DEPTO_CODE" : "1",
+      "DEPTO_DESCRICAO" : "FINANCEIRO"
+    },
+    "Departamento" : {
+      "DEPTO_CODE" : "4",
+      "DEPTO_DESCRICAO" : "PROJETOS"
+    }
+  },
+  "Funcionarios" : {
+    "Funcionario" : {
+      "FUNC_CARGO" : "ANALISTA DE SISTEMAS",
+      "FUNC_CODE" : "1",
+      "FUNC_DEPTO" : "PROJETOS",
+      "FUNC_DT_CONTRATACAO" : "01/01/2010",
+      "FUNC_NOME" : "Leandro",
+      "FUNC_SALARIO" : 1000
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "PROGRAMADOR",
+      "FUNC_CODE" : "3",
+      "FUNC_DEPTO" : "PROJETOS",
+      "FUNC_DT_CONTRATACAO" : "10/03/2011",
+      "FUNC_NOME" : "José",
+      "FUNC_SALARIO" : 1000
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "PSICOLOGA",
+      "FUNC_CODE" : "4",
+      "FUNC_DEPTO" : "CONTABIL",
+      "FUNC_DT_CONTRATACAO" : "01/06/2012",
+      "FUNC_NOME" : "Maria",
+      "FUNC_SALARIO" : 500
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "ASSISTENTE DE RECRUTAMENTO",
+      "FUNC_CODE" : "5",
+      "FUNC_DEPTO" : "CONTABIL",
+      "FUNC_DT_CONTRATACAO" : "01/08/2012",
+      "FUNC_NOME" : "Pedro",
+      "FUNC_SALARIO" : 600
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "ASSISTENTE DE RECRUTAMENTO",
+      "FUNC_CODE" : "6",
+      "FUNC_DEPTO" : "CONTABIL",
+      "FUNC_DT_CONTRATACAO" : "01/07/2012",
+      "FUNC_NOME" : "Antonio",
+      "FUNC_SALARIO" : 600
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "CONTADOR",
+      "FUNC_CODE" : "7",
+      "FUNC_DEPTO" : "FINANCEIRO",
+      "FUNC_DT_CONTRATACAO" : "01/10/2012",
+      "FUNC_NOME" : "Luis",
+      "FUNC_SALARIO" : 800
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "CONTADOR",
+      "FUNC_CODE" : "8",
+      "FUNC_DEPTO" : "FINANCEIRO",
+      "FUNC_DT_CONTRATACAO" : "01/01/2013",
+      "FUNC_NOME" : "Edmilson",
+      "FUNC_SALARIO" : 1500
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "AUXILIAR ADMINISTRATIVO",
+      "FUNC_CODE" : "9",
+      "FUNC_DEPTO" : "RH",
+      "FUNC_DT_CONTRATACAO" : "15/11/2012",
+      "FUNC_NOME" : "Renato",
+      "FUNC_SALARIO" : 800
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "PROGRAMADOR",
+      "FUNC_CODE" : "10",
+      "FUNC_DEPTO" : "PROJETOS",
+      "FUNC_DT_CONTRATACAO" : "01/01/2013",
+      "FUNC_NOME" : "Cristina",
+      "FUNC_SALARIO" : 900
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "GERENTE DE PROJETOS",
+      "FUNC_CODE" : "11",
+      "FUNC_DEPTO" : "PROJETOS",
+      "FUNC_DT_CONTRATACAO" : "10/10/2010",
+      "FUNC_NOME" : "Vitor",
+      "FUNC_SALARIO" : 900
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "GERENTE DE PROJETOS",
+      "FUNC_CODE" : "12",
+      "FUNC_DEPTO" : "PROJETOS",
+      "FUNC_DT_CONTRATACAO" : "13/01/2010",
+      "FUNC_NOME" : "Paulo",
+      "FUNC_SALARIO" : 2800
+    },
+    "Funcionario" : {
+      "FUNC_CARGO" : "ANALISTA FINANCEIRO",
+      "FUNC_CODE" : "2",
+      "FUNC_DEPTO" : "RH",
+      "FUNC_DT_CONTRATACAO" : "01/02/2010",
+      "FUNC_NOME" : "João",
+      "FUNC_SALARIO" : 1200
+    }
+  }
+}
