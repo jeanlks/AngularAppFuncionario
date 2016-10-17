@@ -19,6 +19,10 @@ handlers:
   static_files: mainFuncionario.html
   upload: mainFuncionario.html
 
+- url: /mainFuncionario.html
+  static_files: mainFuncionario.html
+  upload: mainFuncionario.html
+
 - url: /mainDepto.html
   static_files: mainDepto.html
   upload: mainDepto.html
