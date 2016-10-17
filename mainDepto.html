@@ -98,7 +98,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="departamento in departamentos | orderBy : 'DEPTO_CODE'">
+                <tr ng-repeat="departamento in departamentos | orderBy:orderByFunction:reverse">
                 <td style="width:10%">{{departamento.DEPTO_CODE}}</td>
                 <td style="width:60%">{{departamento.DEPTO_DESCRICAO}}</td>
                 <td style="width:30%">{{departamento.DEPTO_RAMAL}}</td>

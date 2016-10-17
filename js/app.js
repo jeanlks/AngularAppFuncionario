@@ -63,6 +63,10 @@ var ref = new Firebase("https://crud-9011c.firebaseio.com/Departamentos");
          $scope.departamentoForm = null;   
     };
     
+$scope.orderByFunction = function(departamento){
+    return parseInt(departamento.DEPTO_CODE);
+  };
+    
    //adiciona departamento no array do firebase 
 $scope.addDepartamento = function(departamentoForm){
     $scope.departamentos.$add(departamentoForm);
@@ -107,6 +111,10 @@ app.controller("CtrlCargo", function ($scope,$window, $firebaseArray) {
  $scope.clearPage = function(){
       $scope.cargoForm= null;   
      };
+    
+ $scope.orderByFunction = function(cargo){
+    return parseInt(cargo.CARGO_COD);
+  };
     
  $scope.addCargo = function(cargoForm){
       $scope.cargos.$add(cargoForm);
